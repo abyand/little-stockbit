@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Little Stockbit Dev</string>
+    <string name="stockbit">Stockbit</string>
+    <string name="login_title">Login</string>
+    <string name="call_center">Call Center</string>
+    <string name="login_with_google">Login with Google</string>
+    <string name="login_with_facebook">Login with Facebook</string>
+</resources>

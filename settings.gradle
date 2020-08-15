@@ -1,0 +1,5 @@
+include ':repository'
+include ':web-services'
+include ':database'
+include ':app'
+rootProject.name = "Little Stockbit Dev"
