@@ -12,15 +12,15 @@
         tools:layout="@layout/login_fragment"
         >
         <action
-            android:id="@+id/login_fragment_to_watchlist_fragment"
-            app:destination="@id/watchlist_fragment" />
+            android:id="@+id/login_fragment_to_home_fragment"
+            app:destination="@id/home_fragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/watchlist_fragment"
-        android:name="com.myans.littlestockbitdev.watchlist.WatchlistFragment"
+        android:id="@+id/home_fragment"
+        android:name="com.myans.littlestockbitdev.home.HomeFragment"
         android:label="detail"
-        tools:layout="@layout/watchlist_fragment"
+        tools:layout="@layout/home_fragment"
         />
 
 

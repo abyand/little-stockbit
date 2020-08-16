@@ -37,16 +37,16 @@ class LoginFragment: Fragment() {
 
     private fun bindView() {
         binding.defaultLogin.setOnClickListener {
-            findNavController().navigate(R.id.login_fragment_to_watchlist_fragment)
+            findNavController().navigate(R.id.login_fragment_to_home_fragment)
         }
         binding.facebookLogin.setOnClickListener {
-            findNavController().navigate(R.id.login_fragment_to_watchlist_fragment)
+            findNavController().navigate(R.id.login_fragment_to_home_fragment)
         }
         binding.googleLogin.setOnClickListener {
-            findNavController().navigate(R.id.login_fragment_to_watchlist_fragment)
+            findNavController().navigate(R.id.login_fragment_to_home_fragment)
         }
         binding.fingerprintLogin.setOnClickListener {
-            findNavController().navigate(R.id.login_fragment_to_watchlist_fragment)
+            findNavController().navigate(R.id.login_fragment_to_home_fragment)
         }
     }
 

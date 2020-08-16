@@ -3,6 +3,7 @@
     <string name="stockbit">Stockbit</string>
     <string name="login_title">Login</string>
     <string name="call_center">Call Center</string>
+    <string name="notification">Notification</string>
     <string name="login_with_google">Login with Google</string>
     <string name="login_with_facebook">Login with Facebook</string>
     <string name="login_text_or">or</string>
@@ -12,4 +13,16 @@
     <string name="login_text_login_with_fingerprint">Login with Fingerprint</string>
     <string name="login_text_dont_have_account">don\'t have an account yet?</string>
     <string name="login_text_register_now">Register now</string>
+    <string name="all_watchlist">All Watchlist</string>
+    <string name="add_symbol">Add Symbol</string>
+    <string name="currently_not_available">Currently Not Available</string>
+    <string name="tab_watchlist">Watchlist</string>
+    <string name="tab_stream">Stream</string>
+    <string name="tab_search">Search</string>
+    <string name="tab_chat">Chat</string>
+    <string name="tab_portfolio">Portfolio</string>
+
+    <string-array name="watchlist_menu">
+        <item>All Watchlist</item>
+    </string-array>
 </resources>
