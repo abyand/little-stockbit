@@ -2,20 +2,20 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">>
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/whiteSolid</item>
+        <item name="colorPrimary">@color/solidWhite</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:statusBarColor">@color/whiteSolid</item>
+        <item name="android:statusBarColor">@color/solidWhite</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="ToolbarTheme" parent="ThemeOverlay.MaterialComponents.ActionBar">
-        <item name="android:textColorPrimary">@color/darkSolid</item>
+        <item name="android:textColorPrimary">@color/solidDark</item>
         <item name="android:textColorSecondary">#EEEEEE</item>
     </style>
 
     <style name="ExternalAccountLogin" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="android:textColor">@color/darkSolid</item>
+        <item name="android:textColor">@color/solidDark</item>
         <item name="android:elevation">1dp</item>
         <item name="android:strokeColor">@color/lightDark</item>
         <item name="android:paddingStart">16dp</item>

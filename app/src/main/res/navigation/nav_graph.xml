@@ -12,7 +12,7 @@
         tools:layout="@layout/login_fragment"
         >
         <action
-            android:id="@+id/action_list_fragment_to_detail_fragment"
+            android:id="@+id/login_fragment_to_watchlist_fragment"
             app:destination="@id/watchlist_fragment" />
     </fragment>
 
