@@ -33,6 +33,7 @@ class HomeFragment: Fragment() {
     }
 
     private fun bindViewPager() {
+        binding.viewPager.offscreenPageLimit = 5
         tabAdapter = HomeTabAdapter(parentFragmentManager)
         tabAdapter.pages = populateTabItems()
         binding.viewPager.adapter = tabAdapter

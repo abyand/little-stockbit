@@ -21,6 +21,7 @@
     <string name="tab_search">Search</string>
     <string name="tab_chat">Chat</string>
     <string name="tab_portfolio">Portfolio</string>
+    <string name="try_again">Try Again</string>
 
     <string-array name="watchlist_menu">
         <item>All Watchlist</item>

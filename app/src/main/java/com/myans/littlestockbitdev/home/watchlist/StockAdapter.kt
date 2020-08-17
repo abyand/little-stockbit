@@ -35,6 +35,9 @@ class StockAdapter : RecyclerView.Adapter<StockAdapter.StocksViewHolder>()  {
     }
 
     override fun onBindViewHolder(holder: StocksViewHolder, position: Int) = holder.bind(items[position])
+    fun isDataSetEmpty(): Boolean {
+        return items.isEmpty()
+    }
 
     class StocksViewHolder(private val itemBinding: StockItemBinding): RecyclerView.ViewHolder(itemBinding.root) {
 
@@ -42,33 +45,35 @@ class StockAdapter : RecyclerView.Adapter<StockAdapter.StocksViewHolder>()  {
             itemBinding.companyName.text = item.companyName
             itemBinding.name.text = item.name
             itemBinding.currentValue.text = formatNumber(item.currentValue)
-            itemBinding.differentValue.text = formatDifferentValue(item.startValue, item.currentValue)
+            itemBinding.differentValue.text = formatDifferentValue(item.openValue, item.currentValue)
 
-            if (item.currentValue > item.startValue) {
+            if (item.currentValue > item.openValue) {
                 itemBinding.differentValue.setTextColor(ContextCompat.getColor(itemView.context, R.color.greenPrimary))
             } else {
                 itemBinding.differentValue.setTextColor(ContextCompat.getColor(itemView.context, R.color.redPrimary))
             }
         }
 
-        private fun formatNumber(value: Int): String {
+        private fun formatNumber(value: Double): String {
             val format: NumberFormat = NumberFormat.getNumberInstance(Locale.US)
-            format.setMaximumFractionDigits(0)
+            format.setMaximumFractionDigits(3)
             return format.format(value)
         }
 
-        private fun formatDifferentValue(start: Int, current: Int): String {
+        private fun formatDifferentValue(start: Double, current: Double): String {
             val builder = StringBuilder()
             val different = current - start
             if (different > 0) {
                 builder.append("+")
+            } else {
+                builder.append("-")
             }
-            builder.append(start - current)
+            builder.append(String.format("%.2f", different))
             builder.append(" (")
             if (different > 0) {
                 builder.append("+")
             }
-            val percentage = String.format("%.2f", (different * 100).toFloat() / start.toFloat())
+            val percentage = String.format("%.2f", (different * 100) / start)
             builder.append("$percentage%)")
             return builder.toString()
         }
@@ -76,6 +81,10 @@ class StockAdapter : RecyclerView.Adapter<StockAdapter.StocksViewHolder>()  {
     }
 
     class ListDiffCallback constructor(oldList: List<Stock>, newList: List<Stock>): DiffCallBackUtil<Stock>(oldList, newList){
+        init {
+            this.oldList = oldList
+            this.newList = newList
+        }
         override fun checkEquality(oldItem: Stock, newItem: Stock): Boolean {
             return true
         }
