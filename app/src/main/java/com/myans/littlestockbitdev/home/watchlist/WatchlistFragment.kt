@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.myans.database.Resource
+import com.myans.database.entities.Resource
 import com.myans.littlestockbitdev.R
 import com.myans.littlestockbitdev.databinding.WatchlistFragmentBinding
 import com.myans.littlestockbitdev.utils.autoCleared

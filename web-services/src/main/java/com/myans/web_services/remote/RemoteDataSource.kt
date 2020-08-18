@@ -1,7 +1,7 @@
 package com.myans.web_services.remote
 
-import com.myans.database.Resource
-import com.myans.database.Stock
+import com.myans.database.entities.Crypto
+import com.myans.database.entities.Resource
 import com.myans.web_services.entities.TopTierVolumeResponse
 import retrofit2.Response
 
@@ -11,7 +11,7 @@ class RemoteDataSource constructor(private val cryptoCompareService: CryptoCompa
         cryptoCompareService.getUpdatedCrypto()
     }
 
-    protected suspend fun getResult(call: suspend () -> Response<TopTierVolumeResponse>): Resource<List<Stock>> {
+    protected suspend fun getResult(call: suspend () -> Response<TopTierVolumeResponse>): Resource<List<Crypto>> {
         try {
             val response = call()
             if (response.isSuccessful) {
@@ -29,9 +29,9 @@ class RemoteDataSource constructor(private val cryptoCompareService: CryptoCompa
         }
     }
 
-    private fun bridgeToListOfStock(respons: TopTierVolumeResponse): List<Stock> {
+    private fun bridgeToListOfStock(respons: TopTierVolumeResponse): List<Crypto> {
         return respons.data.map {
-            Stock(
+            Crypto(
                 name = it.coinInfo.name,
                 companyName = it.coinInfo.fullName,
                 currentValue = it.rawInfo.usdInfo.currentPrice,

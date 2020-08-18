@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.myans.database.Stock
+import com.myans.database.entities.Crypto
 import com.myans.littlestockbitdev.R
 import com.myans.littlestockbitdev.databinding.StockItemBinding
 import com.myans.littlestockbitdev.utils.DiffCallBackUtil
@@ -14,7 +14,7 @@ import java.util.*
 
 class StockAdapter : RecyclerView.Adapter<StockAdapter.StocksViewHolder>()  {
 
-    private var items: List<Stock> = emptyList()
+    private var items: List<Crypto> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StocksViewHolder {
         val binding: StockItemBinding = StockItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -23,13 +23,13 @@ class StockAdapter : RecyclerView.Adapter<StockAdapter.StocksViewHolder>()  {
 
     override fun getItemCount(): Int = items.size
 
-    fun updateList(newList: List<Stock>){
+    fun updateList(newList: List<Crypto>){
         val diffResult = DiffUtil.calculateDiff(ListDiffCallback(items, newList))
         items = newList
         diffResult.dispatchUpdatesTo(this)
     }
 
-    fun setList(list: List<Stock>){
+    fun setList(list: List<Crypto>){
         items = list
         notifyDataSetChanged()
     }
@@ -41,7 +41,7 @@ class StockAdapter : RecyclerView.Adapter<StockAdapter.StocksViewHolder>()  {
 
     class StocksViewHolder(private val itemBinding: StockItemBinding): RecyclerView.ViewHolder(itemBinding.root) {
 
-        fun bind(item: Stock) {
+        fun bind(item: Crypto) {
             itemBinding.companyName.text = item.companyName
             itemBinding.name.text = item.name
             itemBinding.currentValue.text = formatNumber(item.currentValue)
@@ -80,12 +80,12 @@ class StockAdapter : RecyclerView.Adapter<StockAdapter.StocksViewHolder>()  {
 
     }
 
-    class ListDiffCallback constructor(oldList: List<Stock>, newList: List<Stock>): DiffCallBackUtil<Stock>(oldList, newList){
+    class ListDiffCallback constructor(oldList: List<Crypto>, newList: List<Crypto>): DiffCallBackUtil<Crypto>(oldList, newList){
         init {
             this.oldList = oldList
             this.newList = newList
         }
-        override fun checkEquality(oldItem: Stock, newItem: Stock): Boolean {
+        override fun checkEquality(oldItem: Crypto, newItem: Crypto): Boolean {
             return true
         }
     }
