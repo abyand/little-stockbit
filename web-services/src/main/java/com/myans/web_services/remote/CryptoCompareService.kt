@@ -8,6 +8,6 @@ import retrofit2.http.Query
 interface CryptoCompareService {
 
     @GET("data/top/totaltoptiervolfull")
-    suspend fun getUpdatetCrypto(@Query("limit") limit: Int = 50, @Query("tsym") currency: String = "USD"): Response<TopTierVolumeResponse>
+    suspend fun getUpdatedCrypto(@Query("limit") limit: Int = 50, @Query("tsym") currency: String = "USD"): Response<TopTierVolumeResponse>
 
 }

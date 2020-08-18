@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.myans.web_services.remote.CryptoCompareService
 import com.myans.web_services.remote.RemoteDataSource
+import com.tinder.scarlet.Scarlet
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -30,6 +31,6 @@ val serviceModule = module {
     fun provideWatchService(retrofit: Retrofit) = retrofit.create(CryptoCompareService::class.java)
 
     single { provideWatchService(get())}
-
     single { RemoteDataSource(get())}
+
 }

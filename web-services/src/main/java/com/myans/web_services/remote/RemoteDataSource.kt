@@ -8,7 +8,7 @@ import retrofit2.Response
 class RemoteDataSource constructor(private val cryptoCompareService: CryptoCompareService) {
 
     suspend fun getTop24CryptoList() = getResult {
-        cryptoCompareService.getUpdatetCrypto()
+        cryptoCompareService.getUpdatedCrypto()
     }
 
     protected suspend fun getResult(call: suspend () -> Response<TopTierVolumeResponse>): Resource<List<Stock>> {
@@ -23,7 +23,7 @@ class RemoteDataSource constructor(private val cryptoCompareService: CryptoCompa
                         return Resource.success(bridgeToListOfStock(it))
                 }
             }
-            return error(" ${response.code()} ${response.message()}")
+            return Resource.error("Failed to connect")
         } catch (e: Exception) {
             return Resource.error(e.message ?: e.toString())
         }
